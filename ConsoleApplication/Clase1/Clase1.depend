@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1648842489 source:c:\users\florencia\documents\facultad\2do a—o\programacion\2da cursada\programas\clase1\funciones.c
+	"Funciones.h"
+	<math.h>
+
+1648601197 c:\users\florencia\documents\facultad\2do a—o\programacion\2da cursada\programas\clase1\funciones.h
+
+1648842103 source:c:\users\florencia\documents\facultad\2do a—o\programacion\2da cursada\programas\clase1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Funciones.h"
+
+1648844562 source:c:\users\florencia\documents\facultad\2do\programacion\2da_cursada\programas\consoleapplication\clase1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../../Librerias/Fechas/Fechas.h"
+	"../../Librerias/matematica/matematica.h"
+
+1648843953 c:\users\florencia\documents\facultad\2do\programacion\2da_cursada\programas\consoleapplication\clase1\funciones.h
+
+1648843951 c:\users\florencia\documents\facultad\2do\programacion\2da_cursada\programas\librerias\fechas\fechas.h
+
+1648843778 c:\users\florencia\documents\facultad\2do\programacion\2da_cursada\programas\librerias\matematica\matematica.h
+

@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1649288240 source:c:\users\florencia\documents\facultad\2do\programacion\2da_cursada\programas\consoleapplication\usofechas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../../Librerias/Fechas/Fechas.h"
+
+1649287509 c:\users\florencia\documents\facultad\2do\programacion\2da_cursada\programas\librerias\fechas\fechas.h
+
