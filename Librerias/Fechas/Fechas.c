@@ -24,16 +24,16 @@ int esFechaValida(Fecha fecha)
 Fecha sumarDiasAFechas(const Fecha *f, int cd)
 {
     Fecha resultado;
-    diasAnio dA= diaDelAnio(f);
-    dA.dia += cd;
-    int diasARestar = (esBisiesto(dA.anio) ? 366 : 365);
-    while(dA.dia > diasARestar)
+    posicionEnAnio posicionF= diaDelAnio(f);
+    posicionF.nroDia += cd;
+    int diasARestar = (esBisiesto(posicionF.anio) ? 366 : 365);
+    while(posicionF.nroDia > diasARestar)
     {
-        dA.dia -= diasARestar;
-        dA.anio ++;
-        diasARestar = (esBisiesto(dA.anio) ? 366 : 365);
+        posicionF.nroDia -= diasARestar;
+        posicionF.anio ++;
+        diasARestar = (esBisiesto(posicionF.anio) ? 366 : 365);
     }
-    resultado = convertirFecha(dA);
+    resultado = convertirFecha(posicionF);
     return resultado;
 }
 
@@ -41,44 +41,44 @@ int difEntreFechas(const Fecha *f1, const Fecha *f2)
 {
     int cantDiasAniof1= (esBisiesto(f1->anio) ? 366 : 365);
     int acumuladorDias=0, i=0;
-    diasAnio nroDiaf1= diaDelAnio(f1);
-    diasAnio nroDiaf2= diaDelAnio(f2);
+    posicionEnAnio posicionF1= diaDelAnio(f1);
+    posicionEnAnio posicionF2= diaDelAnio(f2);
 
     if(f1->anio==f2->anio)
     {
-        return (nroDiaf2.dia - nroDiaf1.dia);
+        return (posicionF2.nroDia - posicionF1.nroDia);
     }
-    acumuladorDias+= (cantDiasAniof1 - nroDiaf1.dia);
-    for(i=(nroDiaf1.anio+1);i<nroDiaf2.anio;i++)
+    acumuladorDias+= (cantDiasAniof1 - posicionF1.nroDia);
+    for(i=(posicionF1.anio+1);i<posicionF2.anio;i++)
     {
         acumuladorDias += (esBisiesto(i) ? 366 : 365);
     }
-    acumuladorDias+= nroDiaf2.dia;
+    acumuladorDias+= posicionF2.nroDia;
     return acumuladorDias;
 
 }
 
 
-diasAnio diaDelAnio(const Fecha *f)
+posicionEnAnio diaDelAnio(const Fecha *f)
 {
     int i=0;
-    diasAnio resultado;
-    resultado.dia = f->dia;
+    posicionEnAnio resultado;
+    resultado.nroDia = f->dia;
     resultado.anio = f->anio;
     for(i=1;i<(f->mes);i++)
     {
-        resultado.dia += cantDiasMes(i,resultado.anio);
+        resultado.nroDia += cantDiasMes(i,resultado.anio);
     }
     return resultado;
 }
 
-Fecha convertirFecha(diasAnio dA)
+Fecha convertirFecha(posicionEnAnio posicion)
 {
     Fecha resultado;
     int cd;
-    resultado.dia = dA.dia;
+    resultado.dia = posicion.nroDia;
     resultado.mes = 1;
-    resultado.anio = dA.anio;
+    resultado.anio = posicion.anio;
     while(resultado.dia > (cd = cantDiasMes(resultado.mes, resultado.anio)))
     {
         resultado.dia -= cd;

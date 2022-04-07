@@ -9,16 +9,16 @@ typedef struct
 }Fecha;
 
 typedef struct{
-    int dia;
+    int nroDia; //ex dia
     int anio;
-}diasAnio;
+}posicionEnAnio; //ex diasAnio
 
 
 int esFechaValida(Fecha fecha);
 Fecha sumarDiasAFechas(const Fecha *f, int cd);
 int difEntreFechas(const Fecha *f1, const Fecha *f2);
-diasAnio diaDelAnio(const Fecha *f);
-Fecha convertirFecha(diasAnio dA);
+posicionEnAnio diaDelAnio(const Fecha *f);
+Fecha convertirFecha(posicionEnAnio posicion);
 int cantDiasMes(int mes, int anio);
 
 
